@@ -1,0 +1,12 @@
+fastapi
+pydantic
+selenium
+beautifulsoup4
+webdriver-manager
+
+# Linux
+uvloop
+
+# Production
+uvicorn[standard]
+# for conda use uvicorn-standard
