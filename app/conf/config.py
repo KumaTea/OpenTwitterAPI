@@ -4,9 +4,22 @@ from selenium import webdriver
 
 
 def get_config(section: str):
+    section = section.upper()
     config = configparser.ConfigParser()
     config.read(CONFIG_FILE_PATH)
     return dict(config[section])
+
+
+def set_config(section: str, items: dict):
+    section = section.upper()
+    config = configparser.ConfigParser()
+    config.read(CONFIG_FILE_PATH)
+    if config[section]:
+        config[section].update(items)
+    else:
+        config[section] = items
+    with open(CONFIG_FILE_PATH, 'w') as f:
+        config.write(f)
 
 
 def get_chrome_options(data_dir, profile_name):

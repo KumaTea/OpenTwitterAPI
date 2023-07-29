@@ -13,3 +13,10 @@ def get_browser():
     service = ChromeService(ChromeDriverManager().install())
     options = get_chrome_options(data_dir, profile_name)
     return webdriver.Chrome(service=service, options=options)
+
+
+def get_incognito_browser():
+    service = ChromeService(ChromeDriverManager().install())
+    options = get_chrome_options(data_dir, profile_name)
+    options.add_argument('--incognito')
+    return webdriver.Chrome(service=service, options=options)
