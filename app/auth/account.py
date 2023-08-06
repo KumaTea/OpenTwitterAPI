@@ -1,5 +1,9 @@
 from typing import Union
+import app.static.urls as URLS
+from app.sess.manager import browser_manager
 from app.conf.config import get_config, set_config
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
 
 def set_account(username: str, password: str):
@@ -19,3 +23,12 @@ def try_login(
             password = get_config('ACCOUNT')['password']
         except KeyError:
             raise KeyError('Username and password not set')
+
+    browser = browser_manager.get_browser()
+    browser.get(URLS.login)
+
+    username_input = browser.find_element(By.NAME, 'text')
+    username_input.send_keys(username)
+
+    next_button = browser.find_element(By.XPATH, '//div[@role="button"]')
+    next_button.send_keys(Keys.ENTER)

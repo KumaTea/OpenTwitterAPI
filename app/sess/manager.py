@@ -1,25 +1,32 @@
-from app.sess.browser import get_browser, get_incognito_browser
+from app.sess.browser import new_browser, new_incognito
 
 
 class BrowserManager:
     def __init__(self):
         self.browser = None
-        self.incognito_browser = None
+        self.incognito = None
 
-    def get_browser(self):
-        if not self.browser:
-            self.browser = get_browser()
+    def get_browser(self, existing=False):
+        if not existing:
+            self.quit()
+            self.browser = new_browser()
         return self.browser
 
-    def get_incognito_browser(self):
-        if not self.incognito_browser:
-            self.incognito_browser = get_incognito_browser()
-        return self.incognito_browser
+    def get_incognito(self, existing=False):
+        if not existing:
+            self.quit()
+            self.incognito = new_incognito()
+        return self.incognito
 
     def quit(self):
         if self.browser:
             self.browser.quit()
-        if self.incognito_browser:
-            self.incognito_browser.quit()
         self.browser = None
-        self.incognito_browser = None
+
+    def quit_incognito(self):
+        if self.incognito:
+            self.incognito.quit()
+        self.incognito = None
+
+
+browser_manager = BrowserManager()
