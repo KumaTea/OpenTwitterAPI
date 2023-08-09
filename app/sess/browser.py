@@ -12,7 +12,8 @@ profile_name = general_config['profile_name']
 
 
 def new_browser():
-    service = ChromeService(ChromeDriverManager().install())
+    # service = ChromeService(ChromeDriverManager().install())
+    service = ChromeService(executable_path=r'C:\Users\kuma\.wdm\drivers\chromedriver\win32\114.0.5735.90\chromedriver.exe')
     # service = FirefoxService(GeckoDriverManager().install())
     options = get_chrome_options(data_dir, profile_name)
     # options = get_firefox_options(data_dir, profile_name)
