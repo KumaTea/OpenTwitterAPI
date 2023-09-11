@@ -1,7 +1,6 @@
-import json
-from time import sleep
-from app.static.common import *
 from app.types.user import User
+from app.static.common import *
+from app.imports.common import *
 from seleniumwire.utils import decode
 from app.session.manager import browser_manager
 
