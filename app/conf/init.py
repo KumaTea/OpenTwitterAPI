@@ -5,7 +5,7 @@ import string
 import configparser
 from typing import Union
 from app.conf.default import *
-from selenium import webdriver
+from seleniumwire import webdriver
 from app.conf.config import get_chrome_options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService

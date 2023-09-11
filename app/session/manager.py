@@ -1,4 +1,4 @@
-from app.sess.browser import new_browser, new_incognito
+from app.session.browser import new_browser, new_incognito
 
 
 class BrowserManager:

@@ -1,6 +1,6 @@
 import configparser
 from app.conf.default import *
-from selenium import webdriver
+from seleniumwire import webdriver
 from app.static.browser import UA, HEIGHT, WIDTH
 
 

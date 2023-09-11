@@ -1,6 +1,8 @@
+tweepy
 fastapi
 pydantic
 selenium
+selenium-wire
 beautifulsoup4
 webdriver-manager
 

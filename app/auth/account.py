@@ -2,8 +2,8 @@ from time import sleep
 from typing import Union
 import app.static.urls as URLS
 from app.static.common import *
-from app.imp.webdriver import *
-from app.sess.manager import browser_manager
+from app.imports.webdriver import *
+from app.session.manager import browser_manager
 from app.conf.config import get_config, set_config
 
 

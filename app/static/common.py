@@ -1,1 +1,3 @@
 DELAY = 5
+
+SCROLL_DELAY = 2

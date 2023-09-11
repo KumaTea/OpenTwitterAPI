@@ -1,9 +1,9 @@
-from selenium import webdriver
+from seleniumwire import webdriver
 from app.conf.config import get_config, get_chrome_options
 from webdriver_manager.chrome import ChromeDriverManager
-# from webdriver_manager.firefox import GeckoDriverManager
+# from webdriver_manager.firefox imports GeckoDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
-# from selenium.webdriver.firefox.service import Service as FirefoxService
+# from selenium.webdriver.firefox.service imports Service as FirefoxService
 
 
 general_config = get_config('GENERAL')
@@ -12,12 +12,11 @@ profile_name = general_config['profile_name']
 
 
 def new_browser():
-    # service = ChromeService(ChromeDriverManager().install())
-    service = ChromeService(executable_path=r'C:\Users\kuma\.wdm\drivers\chromedriver\win32\114.0.5735.90\chromedriver.exe')
+    service = ChromeService(ChromeDriverManager().install())
     # service = FirefoxService(GeckoDriverManager().install())
     options = get_chrome_options(data_dir, profile_name)
     # options = get_firefox_options(data_dir, profile_name)
-    return webdriver.Firefox(service=service, options=options)
+    return webdriver.Chrome(service=service, options=options)
 
 
 def new_incognito():
@@ -26,4 +25,4 @@ def new_incognito():
     options = get_chrome_options(data_dir, profile_name)
     # options = get_firefox_options(data_dir, profile_name)
     options.add_argument('--incognito')
-    return webdriver.Firefox(service=service, options=options)
+    return webdriver.Chrome(service=service, options=options)
